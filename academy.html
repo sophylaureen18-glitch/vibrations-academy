@@ -106,8 +106,8 @@ body{background:#000;font-family:Inter,system-ui,sans-serif;color:#E6ECF4}
 .btn.ghost{background:rgba(6,10,22,.5);box-shadow:none;border-color:rgba(200,220,255,.5)}
 .btn.sm{min-height:40px;padding:8px 16px;font-size:14px}
 .gb{border:1px solid transparent;background:linear-gradient(rgba(6,10,22,.86),rgba(6,10,22,.86)) padding-box,linear-gradient(135deg,rgba(0,229,255,.7),rgba(138,92,255,.7),rgba(255,61,203,.6)) border-box}
-.ac-hero{position:relative;height:100vh;min-height:620px;overflow:hidden;font-family:Inter,system-ui,sans-serif;color:#F2F4F5;background:#000}
-.ac-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;z-index:0;display:block}
+.ac-hero{position:relative;height:100vh;min-height:620px;overflow:hidden;font-family:Inter,system-ui,sans-serif;color:#F2F4F5;background:#02040a url(assets/academy-motiv.jpg) 50% 50%/cover no-repeat}
+.ac-bg{position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block;opacity:0;transition:opacity .6s}.ac-3d-on .ac-bg{opacity:1}.ac-hero::before{pointer-events:none}
 .ac-hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 70%,rgba(0,0,0,.6) 88%,#000 100%),linear-gradient(90deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,0) 40%)}
 .ac-txt{position:absolute;left:40px;bottom:56px;z-index:3;max-width:560px}
 .ac-txt .k{margin:0 0 10px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#C9D4E3}
@@ -157,14 +157,14 @@ body{background:#000;font-family:Inter,system-ui,sans-serif;color:#E6ECF4}
 .ft2 ul{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:7px;font-size:15px;color:#C9D2DE}.ft2 a{color:#C9D2DE}.ft2 a:hover{color:#fff}
 .ft2 .lk{display:flex;gap:22px;margin:0;font-size:14px}
 @media (max-width:760px){
- .ac-hero{height:auto;min-height:0;padding-top:52vh}.ac-bg{height:56vh;bottom:auto}
+ .ac-hero{height:auto;min-height:0;padding-top:52vh;background-size:auto 56vh;background-position:50% 0}.ac-bg{top:110px;height:calc(56vh - 40px);bottom:auto}
  .ac-hero::before{background:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 40vh,#000 56vh,#000 100%)}
  .ac-txt{position:relative;left:auto;bottom:auto;padding:0 16px;max-width:none}
  .ac-hero .va-safety{position:relative;left:auto;right:auto;top:auto;bottom:auto;margin:22px 12px 0;width:auto}
  .cta{margin:50px 12px 0}
 }
 </style></head><body>
-<section class="ac-hero"><video class="ac-bg" autoplay muted loop playsinline preload="auto" poster="assets/academy-motiv.jpg" aria-hidden="true"><source src="assets/academy-motiv.mp4" type="video/mp4"></video>
+<section class="ac-hero"><canvas class="ac-bg ac-3d" aria-label="3D-Motiv: Team, Filmset und LEVEL. Ein Seitenbild anklicken, um es in die Mitte zu holen."></canvas>
  <header class="va-head">
     <a class="va-brand" href="index.html">
       <img src="assets/logo.png" alt="Vibrations Academy Logo">
@@ -319,6 +319,6 @@ body{background:#000;font-family:Inter,system-ui,sans-serif;color:#E6ECF4}
 
   var last=0; (function f(t){ requestAnimationFrame(f); if(t-last<FRAME) return; last=t; circuit(); list.forEach(function(s){ if(s.vis) s.draw(t/1000); }); })(0);
 })();
-</script><script>(function(){var v=document.querySelector(".ac-bg");if(!v)return;if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){v.removeAttribute("autoplay");v.pause();return;}var p=v.play&&v.play();if(p&&p.catch)p.catch(function(){});})();</script>
+</script><script type="module" src="assets/academy-3d.js"></script>
 <script src="assets/i18n.js"></script>
 </body></html>
