@@ -10,11 +10,7 @@
     'Datenschutz':'Privacy',
     'Hauptnavigation':'Main navigation',
     'Sprache':'Language',
-    'Hellen Modus einschalten':'Switch to light mode',
-    'Dunklen Modus einschalten':'Switch to dark mode',
     'Animierte Illustration: Cyborg-Frau im Wasser hebt den Kopf und blickt nach oben':'Animated illustration: cyborg woman in the water raises her head and looks up',
-    'Animierte Illustration: Cyborg-Frau im hohen Gras hebt den Kopf und blickt nach oben':'Animated illustration: cyborg woman in tall grass raises her head and looks up',
-    'Animierte Illustration: Cyborg-Frau in einer hellen Prüfhalle blickt nach oben':'Animated illustration: cyborg woman in a bright testing hall looking up',
     'Vibrations Academy Logo':'Vibrations Academy logo',
 
     'Anfrage senden':'Send enquiry',
