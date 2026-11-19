@@ -4,11 +4,11 @@ Diese Dateien gehören in diesen Ordner (Namen genau so):
 
 | Datei | Wo sie gebraucht wird |
 |---|---|
-| logo.png | Logo oben links, alle Seiten |
-| frau-intro.mp4 / frau-intro.jpg | Startseite: Intro-Video der Frau und sein Standbild |
-| frau-loop.mp4 / frau-loop.jpg | Startseite: Loop-Video und sein Standbild |
-| academy-hero.jpg | Academy: großes Bild oben |
+| frau.jpg | Startseite: Standbild der Frau (vorhanden) |
+| frau-intro.mp4 | Startseite: Intro-Video der Frau (fehlt noch) |
+| frau-loop.mp4 | Startseite: Loop-Video der Frau (fehlt noch) |
 | industrie.jpg | Academy: Karte „Industrie & Gewerbe“ |
 | event.jpg | Academy: Karte „Film · Event · Medien“ |
 | schulungsraum.jpg | Academy: Schulungsraum |
-| vde.png / vbg.jpg | Academy: Partner-Logos |
+
+Logo, Academy-Titelbild sowie VDE- und VBG-Logo kommen direkt von vibrations-academy.com.
