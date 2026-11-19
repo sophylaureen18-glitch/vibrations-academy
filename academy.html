@@ -10,7 +10,11 @@
 <style>
 body{margin:0;background:#F4F5F6}
 a{color:#B00409;text-decoration:none}a:hover{color:#7E0306}
-.va-nav a{color:#F2F4F5;opacity:.82}.va-nav a:hover{opacity:1;color:#FFFFFF}
+.va-nav{gap:0!important;padding:4px;background:#12171C;border:1px solid #2A333B;border-radius:24px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.va-nav a{padding:7px 10px;border-radius:999px;opacity:.85!important;white-space:nowrap;transition:background .2s,opacity .2s}
+.va-nav a:hover{background:rgba(255,255,255,.1);opacity:1!important;color:#FFFFFF}
+.va-nav a[aria-current="page"]{background:rgba(242,108,12,.16);box-shadow:inset 0 0 0 1px rgba(245,160,0,.6);opacity:1!important}
+.va-nav a{color:#F2F4F5}
 .va-btn-red{transition:background-color .2s}.va-btn-red:hover{background:#C10509!important;color:#FFFFFF!important}
 .va-card{transition:box-shadow .2s}.va-card:hover{box-shadow:0 8px 24px rgba(11,14,17,.12)}
 @media (max-width: 640px){.va-hero-h1{font-size:40px!important}}
@@ -27,9 +31,9 @@ a{color:#B00409;text-decoration:none}a:hover{color:#7E0306}
         <span style="font-size: 11px; color: #A9B2BA; letter-spacing: .04em">German Electronic Solutions &amp; Academy</span>
       </span>
     </a>
-    <nav class="va-nav" aria-label="Hauptnavigation" style="order: 3; flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 6px 28px; padding-top: 10px; border-top: 1px solid #222A31; font-size: 15px; font-weight: 500">
+    <nav class="va-nav" aria-label="Hauptnavigation" style="order: 3; width: fit-content; max-width: 100%; display: flex; flex-wrap: wrap; font-size: 14px; font-weight: 500">
       <a href="index.html">Startseite</a>
-      <a href="academy.html" aria-current="page" style="opacity: 1; box-shadow: inset 0 -2px 0 #E3060C; padding-bottom: 4px">Academy</a>
+      <a href="academy.html" aria-current="page">Academy</a>
       <a href="solutions.html">Electronic Solutions</a>
       <a href="media.html">Media Productions</a>
       <a href="fashion.html">Vibrations Fashion</a>
