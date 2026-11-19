@@ -36,7 +36,8 @@ a{color:#F2F4F5;text-decoration:none}
 /* Hell/Dunkel und Sprache */
 .va-tools{order:3;flex:none;display:flex;align-items:center;gap:8px}
 .va-theme,.va-tools .va-lang{height:40px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;border:1px solid rgba(127,168,255,.35);background:rgba(6,10,22,.6);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#DCE6F5}
-.va-theme{width:40px;cursor:pointer;padding:0}
+.va-theme{width:40px;cursor:pointer;padding:0;opacity:0;visibility:hidden;transform:scale(.8);transition:opacity .5s,transform .5s,visibility .5s}
+.va-theme.ready{opacity:1;visibility:visible;transform:none}
 .va-theme:hover{border-color:rgba(142,177,255,.85)}
 .va-theme:focus-visible{outline:2px solid #8EB1FF;outline-offset:2px}
 .va-tools .va-lang{padding:0 6px;font-size:13px}
@@ -120,53 +121,64 @@ html[data-theme="light"] .va-legal a{color:#1B2A5C}
   var intro=document.getElementById('intro'), loop=document.getElementById('loop'), started=false;
 
   /* Frau bei jeder Bildschirmgröße gut sichtbar: auf schmalen Bildschirmen mittig-links, rechts ist Platz für die Menüliste */
-  var WOMAN_X=0.335, TARGET=0.37, VIDEO_RATIO=16/9;
+  var TARGET=0.37, VIDEO_RATIO=16/9;
   function frameWoman(){
     var f=(stage.clientWidth/stage.clientHeight)/VIDEO_RATIO, p=34;
-    if(f<0.8){ p=Math.max(0,Math.min(100,(WOMAN_X-TARGET*f)/(1-f)*100)); }
+    if(f<0.8){ p=Math.max(0,Math.min(100,((SETS&&SETS[current]?SETS[current].x:0.335)-TARGET*f)/(1-f)*100)); }
     var pos=p.toFixed(1)+'% 45%';
     intro.style.objectPosition=pos; loop.style.objectPosition=pos; stage.style.backgroundPosition=pos;
   }
-  frameWoman(); window.addEventListener('resize', frameWoman);
+  var SETS=null, current='dark';
+  window.addEventListener('resize', function(){ frameWoman(); });
 
   /* Motive für Dunkel (Wasser) und Hell; fehlt das helle Motiv, bleibt das dunkle stehen */
-  var SETS={
-    dark:{intro:'assets/frau-intro.mp4',loop:'assets/frau-loop.mp4',introPoster:'assets/frau-intro.jpg',loopPoster:'assets/frau-loop.jpg',still:'assets/frau.jpg',label:'Animierte Illustration: Cyborg-Frau im Wasser hebt den Kopf und blickt nach oben'},
-    light:{intro:'assets/frau-hell-intro.mp4',loop:'assets/frau-hell-loop.mp4',introPoster:'assets/frau-hell-intro.jpg',loopPoster:'assets/frau-hell-loop.jpg',still:'assets/frau-hell.jpg',label:'Animierte Illustration: Cyborg-Frau im Wasser hebt den Kopf und blickt nach oben'}
+  SETS={
+    dark:{intro:'assets/frau-intro.mp4',loop:'assets/frau-loop.mp4',introPoster:'assets/frau-intro.jpg',loopPoster:'assets/frau-loop.jpg',still:'assets/frau.jpg',x:0.335,label:'Animierte Illustration: Cyborg-Frau im Wasser hebt den Kopf und blickt nach oben'},
+    light:{intro:null,loop:'assets/frau-hell-loop.mp4',loopPoster:'assets/frau-hell-loop.jpg',still:'assets/frau-hell-loop.jpg',x:0.39,label:'Animierte Illustration: Cyborg-Frau in einer hellen Prüfhalle blickt nach oben'}
   };
+  current='dark'; frameWoman();
   var token=0, urls=[];
   function hideIntro(){ intro.style.opacity='0'; }
   intro.addEventListener('ended', function(){
+    if(current==='dark') themeBtn.classList.add('ready');
     if(started) return; started=true;
     try{ loop.currentTime=0; var p=loop.play(); if(p&&p.catch) p.catch(hideIntro); }catch(e){ hideIntro(); }
   });
   loop.addEventListener('playing', function(){ if(started) hideIntro(); });
   function blob(u){ return fetch(u).then(function(r){ if(!r.ok) throw 0; return r.blob(); }).then(function(b){ var x=URL.createObjectURL(b); urls.push(x); return x; }); }
   function showSet(name){
-    var my=++token, set=SETS[name];
-    Promise.all([blob(set.intro), blob(set.loop)]).then(function(r){
+    var my=++token, set=SETS[name], jobs=[blob(set.loop)]; if(set.intro) jobs.unshift(blob(set.intro));
+    Promise.all(jobs).then(function(r){
       if(my!==token) return;
-      urls.slice(0,-2).forEach(function(x){ URL.revokeObjectURL(x); }); urls=urls.slice(-2);
-      started=false; intro.style.transition='none'; intro.style.opacity='1'; void intro.offsetWidth; intro.style.transition='';
-      intro.poster=set.introPoster; loop.poster=set.loopPoster; stage.style.backgroundImage='url('+set.still+')';
-      intro.setAttribute('aria-label',set.label); delete intro.dataset.i18narialabel; if(window.vaApplyLang) window.vaApplyLang();
-      intro.src=r[0]; loop.src=r[1]; loop.load();
-      var p=intro.play(); if(p&&p.catch) p.catch(function(){});
+      urls.slice(0,-r.length).forEach(function(x){ URL.revokeObjectURL(x); }); urls=urls.slice(-r.length);
+      current=name; frameWoman();
+      loop.poster=set.loopPoster; stage.style.backgroundImage='url('+set.still+')';
+      var lp=r[r.length-1];
+      if(set.intro){
+        started=false; intro.style.display=''; intro.style.transition='none'; intro.style.opacity='1'; void intro.offsetWidth; intro.style.transition='';
+        intro.poster=set.introPoster; intro.setAttribute('aria-label',set.label); delete intro.dataset.i18narialabel;
+        loop.setAttribute('aria-hidden','true'); loop.removeAttribute('aria-label'); delete loop.dataset.i18narialabel;
+        intro.src=r[0]; loop.src=lp; loop.load();
+        var p=intro.play(); if(p&&p.catch) p.catch(function(){});
+      } else {
+        started=true; intro.pause(); intro.style.opacity='0';
+        loop.setAttribute('aria-label',set.label); loop.removeAttribute('aria-hidden'); delete loop.dataset.i18narialabel;
+        loop.src=lp; var q=loop.play(); if(q&&q.catch) q.catch(function(){});
+      }
+      if(window.vaApplyLang) window.vaApplyLang();
     }).catch(function(){ if(name!=='dark' && my===token) showSet('dark'); });
   }
 
-  /* Hell/Dunkel-Schalter */
+  /* Hell/Dunkel-Schalter: erscheint erst, wenn die Frau im Wasser aufgeschaut hat */
   var themeBtn=document.querySelector('.va-theme');
   function setTheme(t,save){
     document.documentElement.dataset.theme=t;
     themeBtn.setAttribute('aria-label', t==='light'?'Dunklen Modus einschalten':'Hellen Modus einschalten');
     delete themeBtn.dataset.i18narialabel; if(window.vaApplyLang) window.vaApplyLang();
-    if(save){ try{ localStorage.setItem('va-theme',t); }catch(e){} }
     showSet(t);
   }
   themeBtn.addEventListener('click', function(){ setTheme(document.documentElement.dataset.theme==='light'?'dark':'light', true); });
-  var t0='dark'; try{ t0=localStorage.getItem('va-theme')||'dark'; }catch(e){}
-  setTheme(t0,false);
+  setTheme('dark',false);
 
   /* Elektrischer Rand: weiche Blitzbögen, die langsam am Rand entlangziehen */
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
