@@ -2,6 +2,16 @@
    Übersetzt alle Texte, deren deutscher Wortlaut unten steht. Neue Texte einfach in D ergänzen. */
 (function(){
   var D={
+    'Zu den Fortbildungen':'View courses',
+    'Unsere Fortbildungen':'Our training courses',
+    'Fortbildung für Film & Veranstaltung':'Training for film & events',
+    'Fortbildungen für die Industrie':'Training for industry',
+    'Fortbildungen IHK Akademie':'Training with the IHK Academy',
+    'Bühne mit Lichtshow bei einer Veranstaltung':'Stage with light show at an event',
+    'Messklemmen an einem Schaltschrank in der Industrie':'Measuring clamps on an industrial switch cabinet',
+    'Logo IHK Akademie München und Oberbayern':'Logo of the IHK Academy Munich and Upper Bavaria',
+    '3D-Motiv: Band auf der Bühne, Prüfgerät und Team. Ein Seitenbild anklicken, um es in die Mitte zu holen.':'3D scene: band on stage, test device and team. Click a side image to bring it to the centre.',
+    'Fortbildung-Übersicht – Vibrations German Electronic Solutions & Academy':'Course overview – Vibrations German Electronic Solutions & Academy',
     'Aktuelle Termine':'Upcoming dates',
     'Zu den Terminen':'View dates',
     'Zurück zur Academy':'Back to the Academy',
