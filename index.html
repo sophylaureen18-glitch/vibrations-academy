@@ -39,6 +39,16 @@ a{color:#F2F4F5;text-decoration:none}
 .va-tools .va-lang{padding:0 6px;font-size:13px}
 
 
+/* Kasten Elektrische Sicherheit */
+.va-safety{position:absolute;right:28px;bottom:44px;z-index:5;width:min(560px,44vw);padding:20px 24px 18px;border-radius:18px;background:rgba(6,10,22,.62);border:1px solid rgba(200,220,255,.35);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.va-safety .k{position:relative;z-index:1;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#AFBACA;margin:0 0 4px}
+.va-safety h2{position:relative;z-index:1;margin:0 0 12px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:32px;letter-spacing:.02em;background:linear-gradient(180deg,#FFFFFF 0%,#D9E2EE 48%,#8EB1FF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.va-safety .g{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 18px}
+.va-safety .g a{display:flex;align-items:flex-start;gap:8px;padding:6px 8px;border-radius:8px;font-size:14px;line-height:1.35;color:#E6ECF4;transition:background .2s}
+.va-safety .g a:hover,.va-safety .g a:focus-visible{background:rgba(127,168,255,.14);outline:none}
+.va-safety .g svg{flex:none;margin-top:2px;filter:drop-shadow(0 0 4px var(--c))}
+.va-safety .s{display:none}
+
 .va-legal{position:absolute;right:28px;bottom:16px;display:flex;gap:18px;font-size:12px;z-index:5}
 .va-legal a{color:#C9D0D6}
 
@@ -50,8 +60,19 @@ a{color:#F2F4F5;text-decoration:none}
   .va-nav a{text-align:right;padding:6px 13px}
   .va-nav a span{background-image:linear-gradient(180deg,#EEF2F7 0%,#AFBACA 42%,#5B82F0 100%)}
 }
+@media (max-width:1100px){
+  .va-safety{right:16px;width:min(560px,calc(100vw - 32px))}
+}
 @media (max-width:600px){
   .va-brand span{display:none}
+  .va-safety{left:12px;right:12px;bottom:38px;width:auto;padding:12px 12px 10px}
+  .va-safety .k{display:none}
+  .va-safety h2{font-size:22px;margin-bottom:8px}
+  .va-safety .g{gap:6px}
+  .va-safety .g a{padding:7px 9px;font-size:13px;background:rgba(127,168,255,.08);border:1px solid rgba(127,168,255,.16)}
+  .va-safety .l{display:none}
+  .va-safety .s{display:inline}
+  .va-legal{right:16px;bottom:10px}
   .va-nav{font-size:13px}
   .va-nav a{padding:5px 11px}
 }
@@ -87,6 +108,22 @@ a{color:#F2F4F5;text-decoration:none}
       </div>
     </div>
   </header>
+
+  <section class="va-safety" aria-labelledby="va-safety-h">
+    <canvas class="va-spark" aria-hidden="true"></canvas>
+    <p class="k">Zertifizierte Sicherheit – Made in Germany</p>
+    <h2 id="va-safety-h">Elektrische Sicherheit</h2>
+    <div class="g">
+      <a href="pruefdienste.html" style="--c:#00E5FF"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="var(--c)"/></svg><span class="l">am Arbeitsplatz</span><span class="s">Arbeitsplatz</span></a>
+      <a href="pruefdienste.html" style="--c:#3D7BFF"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="var(--c)"/></svg><span class="l">im Prüffeld</span><span class="s">Prüffeld</span></a>
+      <a href="pruefdienste.html" style="--c:#8A5CFF"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="var(--c)"/></svg><span class="l">bei ortsveränderlichen Betriebsmitteln</span><span class="s">Mobile Geräte</span></a>
+      <a href="pruefdienste.html" style="--c:#FF3DCB"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="var(--c)"/></svg><span class="l">am Filmset</span><span class="s">Filmset</span></a>
+      <a href="pruefdienste.html" style="--c:#39FF88"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="var(--c)"/></svg><span class="l">bei Veranstaltungen | Events</span><span class="s">Events</span></a>
+      <a href="pruefdienste.html" style="--c:#FFB000"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="var(--c)"/></svg><span class="l">der Anlage | Installation</span><span class="s">Anlagen</span></a>
+      <a href="pruefdienste.html" style="--c:#00E5FF"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="var(--c)"/></svg><span class="l">der Maschinen und Schaltgerätekombinationen</span><span class="s">Maschinen</span></a>
+      <a href="pruefdienste.html" style="--c:#8A5CFF"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="var(--c)"/></svg><span class="l">von Stromersatzanlagen | Generatoren</span><span class="s">Generatoren</span></a>
+    </div>
+  </section>
 
   <div class="va-legal">
     <a href="https://vibrations-academy.com/impressum">Impressum</a>
@@ -225,16 +262,19 @@ a{color:#F2F4F5;text-decoration:none}
         var e=Math.min(L,j+SEG), c=mix(j/L+t*0.04+sI*0.18);
         var pulse=0.65+0.35*Math.sin(TAU*2*(j/L)-t*0.8+st.ph);
         g.beginPath(); g.moveTo(q[j][0],q[j][1]); for(var z=j+1;z<=e;z++) g.lineTo(q[z][0],q[z][1]);
-        g.strokeStyle='rgba('+c[0]+','+c[1]+','+c[2]+','+(0.14*pulse*st.a)+')'; g.lineWidth=4; g.stroke();
-        g.strokeStyle='rgba('+Math.round((c[0]+255)/2)+','+Math.round((c[1]+255)/2)+','+Math.round((c[2]+255)/2)+','+(0.85*pulse*st.a)+')'; g.lineWidth=1.2; g.stroke();
+        var LT=this.o.light, wm=LT?2/3:1/2;
+        g.strokeStyle='rgba('+c[0]+','+c[1]+','+c[2]+','+((LT?0.22:0.14)*pulse*st.a)+')'; g.lineWidth=LT?5:4; g.stroke();
+        g.strokeStyle='rgba('+Math.round(c[0]+(255-c[0])*wm)+','+Math.round(c[1]+(255-c[1])*wm)+','+Math.round(c[2]+(255-c[2])*wm)+','+(Math.min(1,(LT?1.1:0.85)*pulse)*st.a)+')'; g.lineWidth=LT?1.7:1.2; g.stroke();
       }
     }
     g.globalCompositeOperation='source-over';
   };
 
   var navSparks=new Sparks(document.querySelector('.va-navwrap .va-spark'), document.querySelector('.va-nav'), {radius:'pill', bolts:6});
-  function resizeAll(){ navSparks.resize(); }
-  if(window.ResizeObserver){ new ResizeObserver(function(){ navSparks.resize(); }).observe(navSparks.host); }
+  var safe=document.querySelector('.va-safety');
+  var safeSparks=new Sparks(safe.querySelector('.va-spark'), safe, {radius:18, bolts:0, light:true});
+  function resizeAll(){ navSparks.resize(); safeSparks.resize(); }
+  if(window.ResizeObserver){ new ResizeObserver(function(){ navSparks.resize(); }).observe(navSparks.host); new ResizeObserver(function(){ safeSparks.resize(); }).observe(safe); }
   window.addEventListener('resize', resizeAll);
   (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(resizeAll);
 
@@ -244,6 +284,7 @@ a{color:#F2F4F5;text-decoration:none}
       requestAnimationFrame(tick);
       if(document.hidden) return; var sec=t/1000;
       if(navSparks.host.offsetWidth) navSparks.draw(sec);
+      safeSparks.draw(sec);
     })(0);
   }
 
