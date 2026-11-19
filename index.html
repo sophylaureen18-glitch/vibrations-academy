@@ -52,7 +52,7 @@ a{color:#F2F4F5;text-decoration:none}a:hover{color:#FFFFFF}
     try{ loop.currentTime=0; var p=loop.play(); if(p&&p.catch) p.catch(hideIntro); }catch(e){ hideIntro(); }
   });
   loop.addEventListener('playing', function(){ if(started) hideIntro(); });
-  [intro,loop].forEach(function(v){ v.addEventListener('error', function(){ v.style.display='none'; }); });
+  [intro,loop].forEach(function(v){ function off(){ v.style.display='none'; } if(v.error) off(); v.addEventListener('error', off); });
 })();
 </script>
 </body>
