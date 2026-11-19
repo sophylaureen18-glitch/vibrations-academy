@@ -40,11 +40,9 @@ function init(){
     { x: -3.05, z: -0.95, ry: THREE.MathUtils.degToRad(28),  h: 1.55 }, // links
     { x: 3.35, z: -0.95, ry: THREE.MathUtils.degToRad(-28), h: 1.55 }  // rechts
   ];
-  const defs = [
-    { url: 'assets/acad-team.jpg',  ar: 2048/1536, col: 0x4f8cff, slot: 0, name: 'Team' },
-    { url: 'assets/acad-set.jpg',   ar: 2048/1140, col: 0x00e5ff, slot: 1, name: 'Filmset' },
-    { url: 'assets/acad-level.jpg', ar: 2048/1172, col: 0xff3dcb, slot: 2, name: 'LEVEL' }
-  ];
+  const cols = [0x4f8cff, 0x00e5ff, 0xff3dcb];
+  const defs = JSON.parse(canvas.dataset.panels || '[]').map((d, i) => ({ url: d.url, ar: d.ar, col: cols[i], slot: i }));
+  if (defs.length !== 3) return;
 
   const panels = defs.map(d => {
     const g = new THREE.Group();
