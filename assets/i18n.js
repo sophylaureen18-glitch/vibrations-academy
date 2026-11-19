@@ -2,6 +2,17 @@
    Übersetzt alle Texte, deren deutscher Wortlaut unten steht. Neue Texte einfach in D ergänzen. */
 (function(){
   var D={
+    'Fortbildung · Kooperation':'Training · Cooperation',
+    'Fortbildungen IHK Akademie':'Training with the IHK Academy',
+    'Zu den Anmelde-Links':'Go to registration links',
+    'Zur Fortbildung-Übersicht':'To the course overview',
+    'Kooperation Bildungseinrichtungen':'Cooperation with educational institutions',
+    'Anmelde-Link · IHK Akademie':'Registration link · IHK Academy',
+    'Meister für Veranstaltungstechnik':'Master craftsman for event technology',
+    'Elektrofachkraft für festgelegte Tätigkeiten für Veranstaltungstechniker:innen':'Electrician for defined tasks for event technicians',
+    'IHK Akademie München und Oberbayern':'IHK Academy Munich and Upper Bavaria',
+    '3D-Motiv: Netzanalyse im Schulungsraum, Schulung am Messfahrzeug und Teilnehmer am Prüfgerät. Ein Seitenbild anklicken, um es in die Mitte zu holen.':'3D scene: grid analysis in the training room, training at the measuring vehicle and participants at the test device. Click a side image to bring it to the centre.',
+    'Fortbildungen IHK Akademie – Vibrations German Electronic Solutions & Academy':'Training with the IHK Academy – Vibrations German Electronic Solutions & Academy',
     'Zu den Fortbildungen':'View courses',
     'Unsere Fortbildungen':'Our training courses',
     'Fortbildung für Film & Veranstaltung':'Training for film & events',
