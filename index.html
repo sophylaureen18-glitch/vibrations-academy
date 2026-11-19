@@ -55,7 +55,7 @@ a{color:#F2F4F5;text-decoration:none}
 .va-legal a{color:#C9D0D6}
 
 /* Handy und Tablet: Knopf links, Menüleiste aufgeklappt */
-@media (max-width:1100px){
+@media (max-width:1300px){
   .va-navwrap{display:none}
   .va-burger{order:0}
   .va-head{padding:14px 16px;gap:12px}
@@ -231,7 +231,7 @@ a{color:#F2F4F5;text-decoration:none}
   btn.addEventListener('click', function(e){ e.stopPropagation(); setOpen(!panel.classList.contains('open')); });
   document.addEventListener('click', function(e){ if(panel.classList.contains('open') && !panel.contains(e.target)) setOpen(false); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape' && panel.classList.contains('open')){ setOpen(false); btn.focus(); } });
-  var mq=window.matchMedia('(max-width:1100px)');
+  var mq=window.matchMedia("(max-width:1300px)");
   if(mq.addEventListener) mq.addEventListener('change', function(){ setOpen(false); }); else mq.addListener(function(){ setOpen(false); });
 })();
 </script>
