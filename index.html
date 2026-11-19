@@ -19,7 +19,7 @@ a{color:#F2F4F5;text-decoration:none}a:hover{color:#FFFFFF}
 <body>
 <main style="height: 100vh; min-height: 520px; position: relative; overflow: hidden; background: #0B0E11 url(assets/frau.jpg) 34% 45% / cover no-repeat; color: #F2F4F5; font-family: Inter, system-ui, sans-serif">
   <video id="loop" class="va-media" src="assets/frau-loop.mp4" poster="assets/frau-loop.jpg" muted loop playsinline preload="auto" aria-hidden="true"></video>
-  <video id="intro" class="va-media" src="assets/frau-intro.mp4" poster="assets/frau-intro.jpg" autoplay muted playsinline preload="auto" aria-label="Animierte Illustration: Cyborg-Frau im Wasser hebt den Kopf und blickt nach oben"></video>
+  <video id="intro" class="va-media" src="assets/frau-intro.mp4" poster="assets/frau-intro.jpg" muted playsinline preload="auto" aria-label="Animierte Illustration: Cyborg-Frau im Wasser hebt den Kopf und blickt nach oben"></video>
 
   <header style="position: absolute; top: 0; left: 0; right: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 32px; padding: 20px 40px; background: linear-gradient(180deg, rgba(11,14,17,.55) 0%, rgba(11,14,17,0) 100%)">
     <a href="index.html" style="display: flex; align-items: center; gap: 12px">
@@ -52,6 +52,8 @@ a{color:#F2F4F5;text-decoration:none}a:hover{color:#FFFFFF}
     try{ loop.currentTime=0; var p=loop.play(); if(p&&p.catch) p.catch(hideIntro); }catch(e){ hideIntro(); }
   });
   loop.addEventListener('playing', function(){ if(started) hideIntro(); });
+  var go=false; function start(){ if(go) return; go=true; var p=intro.play(); if(p&&p.catch) p.catch(function(){}); }
+  if(intro.readyState>=4) start(); else { intro.addEventListener('canplaythrough', start); setTimeout(start, 5000); }
   [intro,loop].forEach(function(v){ function off(){ v.style.display='none'; } if(v.error) off(); v.addEventListener('error', off); });
 })();
 </script>
