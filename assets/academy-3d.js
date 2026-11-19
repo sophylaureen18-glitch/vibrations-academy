@@ -114,12 +114,15 @@ function init(){
   canvas.addEventListener('pointermove', e => { if (e.pointerType === 'touch') return; const p = hit(e); canvas.style.cursor = p && p.userData.slot !== 0 ? 'pointer' : ''; });
 
   const ease = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
-  let raf = 0;
+  let raf = 0, last = 0;
   function request(){ if (!raf) raf = requestAnimationFrame(frame); }
   function frame(now){
     raf = 0; let more = false;
-    cur.x += (aim.x - cur.x) * 0.08; cur.y += (aim.y - cur.y) * 0.08;
+    const dt = last ? Math.min(0.05, (now - last) / 1000) : 0.016; last = now;
+    const k = 1 - Math.exp(-dt * 28); // folgt der Maus fast sofort, nur ein Hauch Glättung
+    cur.x += (aim.x - cur.x) * k; cur.y += (aim.y - cur.y) * k;
     if (Math.abs(aim.x - cur.x) > 0.0005 || Math.abs(aim.y - cur.y) > 0.0005) more = true;
+    if (!more && !anim) last = 0;
     camera.position.set(BASE.x + cur.x * 0.9, BASE.y + cur.y * 0.55, BASE.z);
     camera.lookAt(TARGET);
     if (anim){
