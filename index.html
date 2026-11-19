@@ -6,74 +6,233 @@
 <title>Vibrations – German Electronic Solutions &amp; Academy</title>
 <link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
+*{box-sizing:border-box}
 body{margin:0;background:#0B0E11}
-a{color:#F2F4F5;text-decoration:none}a:hover{color:#FFFFFF}
-.va-nav{gap:0!important;padding:4px;background:rgba(11,14,17,.55);border:1px solid rgba(255,255,255,.16);border-radius:24px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-.va-nav a{padding:7px 10px;border-radius:999px;opacity:.85!important;white-space:nowrap;transition:background .2s,opacity .2s}
-.va-nav a:hover{background:rgba(255,255,255,.1);opacity:1!important;color:#FFFFFF}
-.va-nav a[aria-current="page"]{background:rgba(242,108,12,.16);box-shadow:inset 0 0 0 1px rgba(245,160,0,.6);opacity:1!important}
+a{color:#F2F4F5;text-decoration:none}
+.va-stage{height:100vh;height:100svh;min-height:480px;position:relative;overflow:hidden;background:#0B0E11 url(assets/frau.jpg) 34% 45%/cover no-repeat;color:#F2F4F5;font-family:Inter,system-ui,sans-serif}
 .va-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:34% 45%;display:block}
-@media (max-width: 1100px){
-  .va-head{align-items:flex-start!important;flex-wrap:nowrap!important}
-  .va-nav{flex-direction:column;flex-wrap:nowrap!important;align-items:stretch;border-radius:18px;margin-left:auto}
-  .va-nav a{text-align:right;padding:6px 14px}
-}
-@media (max-width: 600px){
-  .va-head{padding:14px 14px!important;gap:12px!important}
-  .va-brand span{display:none}
-  .va-media{object-position:38% 45%}
-  main{background-position:38% 45%!important}
-  .va-nav{font-size:13px!important;padding:3px}
-  .va-nav a{padding:5px 12px}
-}
 #intro{transition:opacity .8s ease-in-out}
-@media (prefers-reduced-motion: reduce){#intro{transition:none}}
+
+/* Kopfzeile */
+.va-head{position:absolute;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;gap:14px;padding:18px 28px;background:linear-gradient(180deg,rgba(6,9,18,.6) 0%,rgba(6,9,18,0) 100%)}
+.va-brand{order:1;display:flex;align-items:center;gap:12px;flex:none}
+.va-brand img{width:44px;height:44px;object-fit:contain;display:block}
+.va-brand span{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;letter-spacing:.08em}
+.va-navwrap{order:2;margin-left:auto;position:relative;flex:none}
+.va-burger{order:3}
+
+/* Menüleiste (Laptop) */
+.va-nav{position:relative;display:flex;padding:4px;background:rgba(6,10,22,.6);border:1px solid rgba(127,168,255,.22);border-radius:999px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-size:14px;font-weight:600}
+.va-nav a{padding:7px 11px;border-radius:999px;white-space:nowrap;transition:background .2s}
+.va-nav a span{background:linear-gradient(180deg,#FFFFFF 0%,#D9E2EE 48%,#8EB1FF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.va-nav a:hover{background:rgba(127,168,255,.14)}
+.va-nav a[aria-current="page"]{background:rgba(79,123,255,.2);box-shadow:inset 0 0 0 1px rgba(142,177,255,.65)}
+
+/* Menüknopf */
+.va-burger{flex:none;width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:12px;border:1px solid rgba(127,168,255,.35);background:rgba(6,10,22,.6);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#DCE6F5;cursor:pointer;transition:border-color .2s,box-shadow .2s}
+.va-burger:hover,.va-burger[aria-expanded="true"]{border-color:rgba(142,177,255,.85);box-shadow:0 0 14px rgba(79,123,255,.45)}
+.va-burger:focus-visible{outline:2px solid #8EB1FF;outline-offset:2px}
+.va-burger .x{display:none}.va-burger[aria-expanded="true"] .x{display:block}.va-burger[aria-expanded="true"] .l{display:none}
+
+/* Aufklapp-Menü */
+.va-panel{position:absolute;z-index:20;top:76px;right:28px;width:min(300px,calc(100vw - 32px));padding:10px;border-radius:18px;background:rgba(6,10,22,.86);border:1px solid rgba(127,168,255,.25);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);opacity:0;transform:translateY(-8px);pointer-events:none;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s;font-family:Inter,system-ui,sans-serif}
+.va-panel.open{opacity:1;transform:none;pointer-events:auto;visibility:visible}
+.va-panel nav{position:relative;display:flex;flex-direction:column}
+.va-panel nav a{padding:11px 14px;border-radius:10px;font-size:18px;font-weight:600;line-height:1.2}
+.va-panel nav a span{background:linear-gradient(180deg,#EEF2F7 0%,#AFBACA 42%,#4F78EC 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.va-panel nav a:hover,.va-panel nav a:focus-visible{background:rgba(79,123,255,.14);outline:none}
+.va-panel nav a[aria-current="page"]{background:rgba(79,123,255,.18);box-shadow:inset 0 0 0 1px rgba(142,177,255,.55)}
+.va-panel .small{display:flex;gap:18px;padding:12px 14px 6px;margin-top:6px;border-top:1px solid rgba(127,168,255,.18);font-size:13px}
+.va-panel .small a{color:#AFBACA}
+
+/* Lichtpartikel-Rand */
+.va-spark{position:absolute;left:-12px;top:-12px;pointer-events:none;z-index:0}
+.va-nav>a,.va-panel nav,.va-panel .small{position:relative;z-index:1}
+
+.va-legal{position:absolute;right:28px;bottom:16px;display:flex;gap:18px;font-size:12px;z-index:5}
+.va-legal a{color:#C9D0D6}
+
+/* Handy und Tablet: Knopf links, Menüleiste aufgeklappt */
+@media (max-width:1100px){
+  .va-navwrap{display:none}
+  .va-burger{order:0}
+  .va-head{padding:14px 16px;gap:12px}
+  .va-panel{left:16px;right:auto;top:72px}
+}
+@media (max-width:420px){ .va-brand span{font-size:20px} }
+@media (prefers-reduced-motion:reduce){ #intro,.va-panel{transition:none} }
 </style>
 </head>
 <body>
-<main style="height: 100vh; min-height: 520px; position: relative; overflow: hidden; background: #0B0E11 url(assets/frau.jpg) 34% 45% / cover no-repeat; color: #F2F4F5; font-family: Inter, system-ui, sans-serif">
+<main class="va-stage">
   <video id="loop" class="va-media" data-src="assets/frau-loop.mp4" poster="assets/frau-loop.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
   <video id="intro" class="va-media" data-src="assets/frau-intro.mp4" poster="assets/frau-intro.jpg" muted playsinline preload="none" aria-label="Animierte Illustration: Cyborg-Frau im Wasser hebt den Kopf und blickt nach oben"></video>
 
-  <header class="va-head" style="position: absolute; top: 0; left: 0; right: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; padding: 18px 32px; background: linear-gradient(180deg, rgba(11,14,17,.55) 0%, rgba(11,14,17,0) 100%)">
-    <a class="va-brand" href="index.html" style="display: flex; align-items: center; gap: 12px">
-      <img src="assets/logo.png" alt="Vibrations Academy Logo" style="width: 44px; height: 44px; object-fit: contain">
-      <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: .08em">VIBRATIONS</span>
+  <header class="va-head">
+    <button class="va-burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="va-panel">
+      <svg class="l" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <svg class="x" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+    <a class="va-brand" href="index.html">
+      <img src="assets/logo.png" alt="Vibrations Academy Logo">
+      <span>VIBRATIONS</span>
     </a>
-    <nav class="va-nav" aria-label="Hauptnavigation" style="display: flex; flex-wrap: wrap; margin-left: auto; font-size: 14px; font-weight: 500">
-      <a href="index.html" aria-current="page">Startseite</a>
-      <a href="academy.html">Academy</a>
-      <a href="solutions.html">Electronic Solutions</a>
-      <a href="media.html">Media Productions</a>
-      <a href="fashion.html">Vibrations Fashion</a>
-      <a href="pruefdienste.html">Prüfdienste – Services</a>
-      <a href="referenzen.html">Referenzen</a>
-      <a href="kontakt.html">Kontakt</a>
-    </nav>
+    <div class="va-navwrap">
+      <canvas class="va-spark" aria-hidden="true"></canvas>
+      <nav class="va-nav" aria-label="Hauptnavigation">
+        <a href="index.html" aria-current="page"><span>Startseite</span></a>
+        <a href="academy.html"><span>Academy</span></a>
+        <a href="solutions.html"><span>Electronic Solutions</span></a>
+        <a href="media.html"><span>Media Productions</span></a>
+        <a href="fashion.html"><span>Vibrations Fashion</span></a>
+        <a href="pruefdienste.html"><span>Prüfdienste – Services</span></a>
+        <a href="referenzen.html"><span>Referenzen</span></a>
+        <a href="kontakt.html"><span>Kontakt</span></a>
+      </nav>
+    </div>
   </header>
 
-  <div style="position: absolute; right: 40px; bottom: 16px; display: flex; gap: 18px; font-size: 12px">
-    <a href="https://vibrations-academy.com/impressum" style="color: #C9D0D6">Impressum</a>
-    <a href="https://vibrations-academy.com/datenschutz" style="color: #C9D0D6">Datenschutz</a>
+  <div id="va-panel" class="va-panel" aria-hidden="true">
+    <canvas class="va-spark" aria-hidden="true"></canvas>
+    <nav aria-label="Menü">
+      <a href="index.html" aria-current="page"><span>Startseite</span></a>
+      <a href="academy.html"><span>Academy</span></a>
+      <a href="solutions.html"><span>Electronic Solutions</span></a>
+      <a href="media.html"><span>Media Productions</span></a>
+      <a href="fashion.html"><span>Vibrations Fashion</span></a>
+      <a href="pruefdienste.html"><span>Prüfdienste – Services</span></a>
+      <a href="referenzen.html"><span>Referenzen</span></a>
+      <a href="kontakt.html"><span>Kontakt</span></a>
+    </nav>
+    <div class="small">
+      <a href="https://vibrations-academy.com/impressum">Impressum</a>
+      <a href="https://vibrations-academy.com/datenschutz">Datenschutz</a>
+    </div>
+  </div>
+
+  <div class="va-legal">
+    <a href="https://vibrations-academy.com/impressum">Impressum</a>
+    <a href="https://vibrations-academy.com/datenschutz">Datenschutz</a>
   </div>
 </main>
+
 <script>
 (function(){
+  var stage=document.querySelector('.va-stage');
   var intro=document.getElementById('intro'), loop=document.getElementById('loop'), started=false;
+
+  /* Frau bei jeder Bildschirmgröße gut sichtbar: auf schmalen Bildschirmen in die Mitte rücken */
+  var WOMAN_X=0.335, VIDEO_RATIO=16/9;
+  function frameWoman(){
+    var f=(stage.clientWidth/stage.clientHeight)/VIDEO_RATIO, p=34;
+    if(f<0.8){ p=Math.max(0,Math.min(100,(WOMAN_X-f/2)/(1-f)*100)); }
+    var pos=p.toFixed(1)+'% 45%';
+    intro.style.objectPosition=pos; loop.style.objectPosition=pos; stage.style.backgroundPosition=pos;
+  }
+  frameWoman(); window.addEventListener('resize', frameWoman);
+
+  /* Videos: erst komplett laden, dann flüssig abspielen */
   function hideIntro(){ intro.style.opacity='0'; }
   intro.addEventListener('ended', function(){
     if(started) return; started=true;
     try{ loop.currentTime=0; var p=loop.play(); if(p&&p.catch) p.catch(hideIntro); }catch(e){ hideIntro(); }
   });
   loop.addEventListener('playing', function(){ if(started) hideIntro(); });
-  /* Beide Videos erst komplett laden, dann abspielen: kein Ruckeln bei langsamer Verbindung */
   function load(v){ return fetch(v.dataset.src).then(function(r){ if(!r.ok) throw 0; return r.blob(); }).then(function(b){ v.src=URL.createObjectURL(b); }); }
   Promise.all([load(intro), load(loop)]).then(function(){
-    loop.load();
-    var p=intro.play(); if(p&&p.catch) p.catch(function(){});
-  }).catch(function(){ /* ohne Videos bleibt das Standbild stehen */ });
+    loop.load(); var p=intro.play(); if(p&&p.catch) p.catch(function(){});
+  }).catch(function(){});
+
+  /* Lichtpartikel-Rand */
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var COLORS=['#8EB1FF','#4F7BFF','#A68CFF','#E8F0FF','#5CD2FF'];
+  function sprite(c){
+    var s=document.createElement('canvas'); s.width=s.height=32; var g=s.getContext('2d');
+    var r=g.createRadialGradient(16,16,0,16,16,16);
+    r.addColorStop(0,'rgba(255,255,255,1)'); r.addColorStop(.25,c); r.addColorStop(1,'rgba(0,0,0,0)');
+    g.fillStyle=r; g.fillRect(0,0,32,32); return s;
+  }
+  var SPRITES=COLORS.map(sprite);
+
+  function Sparks(canvas, host, opts){
+    this.c=canvas; this.host=host; this.o=opts; this.ctx=canvas.getContext('2d'); this.pts=[]; this.ps=[]; this.pad=12; this.L=0;
+  }
+  Sparks.prototype.resize=function(){
+    var w=this.host.offsetWidth, h=this.host.offsetHeight; if(!w||!h){ this.L=0; return; }
+    var dpr=Math.min(window.devicePixelRatio||1,2), pad=this.pad;
+    this.W=w+pad*2; this.H=h+pad*2;
+    this.c.width=Math.round(this.W*dpr); this.c.height=Math.round(this.H*dpr); this.c.style.width=this.W+'px'; this.c.style.height=this.H+'px';
+    this.ctx.setTransform(dpr,0,0,dpr,0,0);
+    var r=Math.min(this.o.radius==='pill'?h/2:this.o.radius,h/2,w/2), x0=pad, y0=pad, pts=[], step=2;
+    function line(ax,ay,bx,by){ var d=Math.hypot(bx-ax,by-ay), n=Math.max(1,Math.round(d/step)); for(var i=0;i<n;i++) pts.push([ax+(bx-ax)*i/n, ay+(by-ay)*i/n]); }
+    function arc(cx,cy,a0){ var n=Math.max(2,Math.round(r*Math.PI/2/step)); for(var i=0;i<n;i++){ var a=a0+Math.PI/2*i/n; pts.push([cx+r*Math.cos(a), cy+r*Math.sin(a)]); } }
+    line(x0+r,y0,x0+w-r,y0); arc(x0+w-r,y0+r,-Math.PI/2);
+    line(x0+w,y0+r,x0+w,y0+h-r); arc(x0+w-r,y0+h-r,0);
+    line(x0+w-r,y0+h,x0+r,y0+h); arc(x0+r,y0+h-r,Math.PI/2);
+    line(x0,y0+h-r,x0,y0+r); arc(x0+r,y0+r,Math.PI);
+    this.pts=pts; this.L=pts.length;
+    var n=Math.round(this.L*this.o.density); this.ps=[];
+    for(var i=0;i<n;i++) this.ps.push(this.spawn(Math.random()*this.L));
+    if(reduce) this.draw();
+  };
+  Sparks.prototype.spawn=function(s){
+    return { s:s, v:(Math.random()<.5?-1:1)*(0.6+Math.random()*2.2), size:3+Math.random()*7, sp:Math.floor(Math.random()*SPRITES.length), off:(Math.random()-.5)*3, tw:Math.random()*6.28 };
+  };
+  Sparks.prototype.draw=function(){
+    var g=this.ctx, pts=this.pts, L=this.L; if(!L) return;
+    g.clearRect(0,0,this.W,this.H);
+    g.globalCompositeOperation='source-over';
+    g.strokeStyle='rgba(127,168,255,.35)'; g.lineWidth=1; g.beginPath();
+    for(var i=0;i<L;i+=3){ var p=pts[i]; if(i) g.lineTo(p[0],p[1]); else g.moveTo(p[0],p[1]); } g.closePath(); g.stroke();
+    g.globalCompositeOperation='lighter';
+    for(var k=0;k<this.ps.length;k++){
+      var q=this.ps[k]; if(!reduce){ q.s=(q.s+q.v+L)%L; q.tw+=0.15; }
+      var a=pts[Math.floor(q.s)%L], fl=.55+.45*Math.sin(q.tw), sz=q.size*fl;
+      g.globalAlpha=.85*fl; g.drawImage(SPRITES[q.sp], a[0]-sz/2, a[1]+q.off-sz/2, sz, sz);
+      var b=pts[(Math.floor(q.s-q.v*3)%L+L)%L]; g.globalAlpha=.35*fl; g.drawImage(SPRITES[q.sp], b[0]-sz/4, b[1]+q.off-sz/4, sz/2, sz/2);
+    }
+    if(!reduce && Math.random()<this.o.bolt) this.bolt(g);
+    g.globalAlpha=1; g.globalCompositeOperation='source-over';
+  };
+  Sparks.prototype.bolt=function(g){
+    var i=Math.floor(Math.random()*this.L), a=this.pts[i], x=a[0], y=a[1];
+    g.strokeStyle='rgba(200,220,255,.9)'; g.lineWidth=1; g.globalAlpha=.8; g.beginPath(); g.moveTo(x,y);
+    for(var j=1;j<=5;j++){ var b=this.pts[(i+j*6)%this.L]; x=b[0]+(Math.random()-.5)*6; y=b[1]+(Math.random()-.5)*6; g.lineTo(x,y); }
+    g.stroke();
+  };
+
+  var panel=document.getElementById('va-panel');
+  var navSparks=new Sparks(document.querySelector('.va-navwrap .va-spark'), document.querySelector('.va-nav'), {radius:'pill', density:.12, bolt:.06});
+  var panelSparks=new Sparks(panel.querySelector('.va-spark'), panel, {radius:18, density:.09, bolt:.05});
+  function resizeAll(){ navSparks.resize(); panelSparks.resize(); }
+  if(window.ResizeObserver){ new ResizeObserver(function(){ navSparks.resize(); }).observe(navSparks.host); new ResizeObserver(function(){ panelSparks.resize(); }).observe(panel); }
+  window.addEventListener('resize', resizeAll);
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(resizeAll);
+
+  if(!reduce){
+    var last=0;
+    (function tick(t){
+      requestAnimationFrame(tick);
+      if(document.hidden || t-last<33) return; last=t;
+      if(navSparks.host.offsetWidth) navSparks.draw();
+      if(panel.classList.contains('open')) panelSparks.draw();
+    })(0);
+  }
+
+  /* Menüknopf */
+  var btn=document.querySelector('.va-burger');
+  function setOpen(o){
+    panel.classList.toggle('open',o); panel.setAttribute('aria-hidden',o?'false':'true');
+    btn.setAttribute('aria-expanded',o?'true':'false'); btn.setAttribute('aria-label',o?'Menü schließen':'Menü öffnen');
+    if(o){ panelSparks.resize(); }
+  }
+  btn.addEventListener('click', function(e){ e.stopPropagation(); setOpen(!panel.classList.contains('open')); });
+  document.addEventListener('click', function(e){ if(panel.classList.contains('open') && !panel.contains(e.target)) setOpen(false); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && panel.classList.contains('open')){ setOpen(false); btn.focus(); } });
+  var mq=window.matchMedia('(max-width:1100px)');
+  if(mq.addEventListener) mq.addEventListener('change', function(){ setOpen(false); }); else mq.addListener(function(){ setOpen(false); });
 })();
 </script>
 </body>
