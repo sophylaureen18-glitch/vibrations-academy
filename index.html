@@ -40,7 +40,7 @@ a{color:#F2F4F5;text-decoration:none}
 
 
 /* Kasten Elektrische Sicherheit */
-.va-safety{position:absolute;right:28px;bottom:44px;z-index:5;width:min(560px,44vw);padding:20px 24px 18px;border-radius:18px;background:rgba(6,10,22,.62);border:1px solid rgba(200,220,255,.35);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.va-safety{position:absolute;right:28px;bottom:28px;z-index:5;width:min(560px,44vw);padding:20px 24px 18px;border-radius:18px;background:rgba(6,10,22,.62);border:1px solid rgba(200,220,255,.35);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
 .va-safety .k{position:relative;z-index:1;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#AFBACA;margin:0 0 4px}
 .va-safety h2{position:relative;z-index:1;margin:0 0 12px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:32px;letter-spacing:.02em;background:linear-gradient(180deg,#FFFFFF 0%,#D9E2EE 48%,#8EB1FF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .va-safety .g{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 18px}
@@ -48,6 +48,27 @@ a{color:#F2F4F5;text-decoration:none}
 .va-safety .g a:hover,.va-safety .g a:focus-visible{background:rgba(127,168,255,.14);outline:none}
 .va-safety .g svg{flex:none;margin-top:2px;filter:drop-shadow(0 0 4px var(--c))}
 .va-safety .s{display:none}
+
+/* Verlauf ins Schwarze und Bereich darunter */
+.va-stage::after{content:"";position:absolute;left:0;right:0;bottom:0;height:38%;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 55%,#000 100%);pointer-events:none;z-index:1}
+.va-hint{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#AFBACA}
+.va-hint svg{animation:va-b 2.4s ease-in-out infinite}@keyframes va-b{50%{transform:translateY(5px)}}
+.va-below{position:relative;background:#000;overflow:hidden;color:#E6ECF4;font-family:Inter,system-ui,sans-serif}
+.va-below>canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.va-below::before{content:"";position:absolute;left:0;right:0;top:0;height:160px;background:linear-gradient(#000,rgba(0,0,0,0));z-index:1;pointer-events:none}
+.va-lead{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:72px 24px 0}
+.va-lead h2{margin:0 0 18px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(28px,4vw,44px);line-height:1.08;background:linear-gradient(180deg,#FFFFFF 0%,#D9E2EE 48%,#8EB1FF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.va-lead .em{margin:0 0 14px;font-size:18px;line-height:1.6;color:#E6ECF4;font-weight:600;max-width:900px}
+.va-lead p{margin:0 0 14px;font-size:16px;line-height:1.75;color:#B9C4D2;max-width:900px}
+.va-cards{position:relative;z-index:2;max-width:1100px;margin:44px auto 0;padding:0 24px 80px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:22px}
+.va-card{border-radius:18px;overflow:hidden;background:rgba(6,10,22,.7);border:1px solid rgba(200,220,255,.28);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.va-card img{display:block;width:100%;height:260px;object-fit:cover}
+.va-card .in{padding:22px 24px 24px}
+.va-card h3{margin:0 0 12px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:30px;color:#F2F4F5}
+.va-card a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 4px;border-top:1px solid rgba(127,168,255,.16);color:#E6ECF4;font-size:15px;font-weight:500}
+.va-card a:hover,.va-card a:focus-visible{color:#FFFFFF;outline:none}.va-card a svg{flex:none;transition:transform .2s}.va-card a:hover svg{transform:translateX(3px)}
+.va-foot{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:22px 24px 30px;display:flex;gap:20px;justify-content:flex-end;border-top:1px solid rgba(127,168,255,.14);font-size:13px}
+.va-foot a{color:#AFBACA}.va-foot a:hover{color:#FFFFFF}
 
 .va-legal{position:absolute;right:28px;bottom:16px;display:flex;gap:18px;font-size:12px;z-index:5}
 .va-legal a{color:#C9D0D6}
@@ -65,18 +86,18 @@ a{color:#F2F4F5;text-decoration:none}
 }
 @media (max-width:600px){
   .va-brand span{display:none}
-  .va-safety{left:12px;right:12px;bottom:38px;width:auto;padding:12px 12px 10px}
+  .va-safety{left:12px;right:12px;bottom:16px;width:auto;padding:12px 12px 10px}
+  .va-hint{display:none}
   .va-safety .k{display:none}
   .va-safety h2{font-size:22px;margin-bottom:8px}
   .va-safety .g{gap:6px}
   .va-safety .g a{padding:7px 9px;font-size:13px;background:rgba(127,168,255,.08);border:1px solid rgba(127,168,255,.16)}
   .va-safety .l{display:none}
   .va-safety .s{display:inline}
-  .va-legal{right:16px;bottom:10px}
   .va-nav{font-size:13px}
   .va-nav a{padding:5px 11px}
 }
-@media (prefers-reduced-motion:reduce){ #intro{transition:none} }
+@media (prefers-reduced-motion:reduce){ #intro{transition:none} .va-hint svg{animation:none} }
 </style>
 </head>
 <body>
@@ -125,11 +146,39 @@ a{color:#F2F4F5;text-decoration:none}
     </div>
   </section>
 
-  <div class="va-legal">
+  <div class="va-hint" aria-hidden="true"><span>Weiter nach unten</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+</main>
+
+<section class="va-below" aria-labelledby="va-lead-h">
+  <canvas id="va-circuit" aria-hidden="true"></canvas>
+  <div class="va-lead">
+    <h2 id="va-lead-h">Zertifizierte Sicherheit „Made in Germany“ – Visionen mit System.</h2>
+    <p class="em">Ständig wachsende Anforderungen in der Event-, Veranstaltungs- und Filmindustrie setzen ein hohes Niveau an Know-how im Umgang mit Mess- und Prüftechnik, Stromerzeugung und Stromnetzsicherheit voraus.</p>
+    <p>Wir sehen genau hin, um höchste Sicherheitsstandards garantieren zu können. Wir arbeiten mit unseren Teilnehmern an den weltweit neuesten Geräten. In unserer Academy werden die Teilnehmer extrem praxisnah geschult und mit realen Situationen konfrontiert. Schnelle Problemlösungen wie auch der sichere Umgang mit aktuellen Normen, Systemen und Sicherheitsvorgaben werden so vermittelt. In Zusammenarbeit mit den führenden Unternehmen der europäischen High-Tech-Industrie werden die Schulungsinhalte ständig weiterentwickelt und aktualisiert.</p>
+  </div>
+  <div class="va-cards">
+    <article class="va-card">
+      <img src="https://vibrations-academy.com/assets/img/content/3-Uwe%20pr%C3%BCft.jpg" alt="Trainer prüft ein Gerät in der Werkstatt" loading="lazy">
+      <div class="in"><h3>Industrie | Gewerbebetrieb</h3>
+        <a href="pruefdienste.html">Organisation der Betriebssicherheit<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#8EB1FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="solutions.html">Technik<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#8EB1FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="academy.html">Fortbildungen<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#8EB1FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </article>
+    <article class="va-card">
+      <img src="assets/event.jpg" alt="Bühne mit Lichtshow bei einer Veranstaltung" loading="lazy">
+      <div class="in"><h3>Film | Event | Medien</h3>
+        <a href="pruefdienste.html">Organisation der Betriebssicherheit<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#8EB1FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="solutions.html">Technik<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#8EB1FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="academy.html">Fachspezifische Fortbildungen für die Film- und Eventindustrie<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#8EB1FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </article>
+  </div>
+  <footer class="va-foot">
     <a href="https://vibrations-academy.com/impressum">Impressum</a>
     <a href="https://vibrations-academy.com/datenschutz">Datenschutz</a>
-  </div>
-</main>
+  </footer>
+</section>
 
 <script>
 (function(){
@@ -277,6 +326,41 @@ a{color:#F2F4F5;text-decoration:none}
   if(window.ResizeObserver){ new ResizeObserver(function(){ navSparks.resize(); }).observe(navSparks.host); new ResizeObserver(function(){ safeSparks.resize(); }).observe(safe); }
   window.addEventListener('resize', resizeAll);
   (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(resizeAll);
+
+
+  /* Bewegtes Muster: Leiterbahnen mit Lichtimpulsen (läuft nur, wenn sichtbar) */
+  (function(){
+    var c=document.getElementById('va-circuit'), box=c.parentNode, g=c.getContext('2d'), W=0, H=0, lastW=0, vis=false, traces=[], pulses=[];
+    function rnd(a,b){ return a+Math.random()*(b-a); }
+    function colA(i,a){ var e=ELEC[i%ELEC.length]; return 'rgba('+e[0]+','+e[1]+','+e[2]+','+a+')'; }
+    function build(){
+      var d=Math.min(window.devicePixelRatio||1,2); W=box.offsetWidth; H=box.offsetHeight; lastW=W;
+      c.width=Math.round(W*d); c.height=Math.round(H*d); g.setTransform(d,0,0,d,0,0);
+      traces=[]; var S=28, n=Math.round(W*H/9000);
+      for(var i=0;i<n;i++){ var x=Math.round(rnd(0,W)/S)*S, y=Math.round(rnd(0,H)/S)*S, pts=[[x,y]], dir=Math.floor(rnd(0,4)), steps=Math.floor(rnd(3,8));
+        for(var k=0;k<steps;k++){ var len=S*Math.floor(rnd(1,4)), dx=[1,0,-1,0][dir], dy=[0,1,0,-1][dir];
+          if(Math.random()<.35){ dx=dx||(Math.random()<.5?1:-1); dy=dy||(Math.random()<.5?1:-1); }
+          x+=dx*len; y+=dy*len; pts.push([x,y]); if(Math.random()<.5) dir=(dir+(Math.random()<.5?1:3))%4; }
+        var L=0, seg=[]; for(var j=1;j<pts.length;j++){ var l=Math.hypot(pts[j][0]-pts[j-1][0],pts[j][1]-pts[j-1][1]); seg.push(l); L+=l; }
+        traces.push({p:pts,seg:seg,L:L,c:Math.floor(rnd(0,6))}); }
+      pulses=[]; for(var i=0;i<Math.round(traces.length*.35);i++) pulses.push({t:traces[Math.floor(rnd(0,traces.length))],s:rnd(0,1),v:rnd(.0015,.004)});
+      draw();
+    }
+    function at(tr,s){ var d=s*tr.L; for(var i=0;i<tr.seg.length;i++){ if(d<=tr.seg[i]){ var a=tr.p[i],b=tr.p[i+1],f=d/tr.seg[i]; return [a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f]; } d-=tr.seg[i]; } return tr.p[tr.p.length-1]; }
+    function draw(){
+      g.clearRect(0,0,W,H); g.lineWidth=1.2; g.lineJoin='round';
+      traces.forEach(function(tr){ g.strokeStyle='rgba(90,120,170,.16)'; g.beginPath(); g.moveTo(tr.p[0][0],tr.p[0][1]); for(var i=1;i<tr.p.length;i++) g.lineTo(tr.p[i][0],tr.p[i][1]); g.stroke();
+        var e=tr.p[tr.p.length-1]; g.fillStyle='rgba(120,150,200,.25)'; g.beginPath(); g.arc(e[0],e[1],2.4,0,6.283); g.fill(); });
+      g.globalCompositeOperation='lighter';
+      pulses.forEach(function(p){ if(!reduce){ p.s+=p.v; if(p.s>1){ p.s=0; p.t=traces[Math.floor(Math.random()*traces.length)]; } }
+        for(var k=0;k<10;k++){ var q=at(p.t,Math.max(0,p.s-k*.012)); g.fillStyle=colA(p.t.c,.5*(1-k/10)); g.beginPath(); g.arc(q[0],q[1],2.2-k*.15,0,6.283); g.fill(); } });
+      g.globalCompositeOperation='source-over';
+    }
+    build();
+    window.addEventListener('resize', function(){ if(Math.abs(box.offsetWidth-lastW)>40 || Math.abs(box.offsetHeight-H)>120) build(); });
+    if(window.IntersectionObserver) new IntersectionObserver(function(e){ vis=e[0].isIntersecting; }).observe(box); else vis=true;
+    if(!reduce) (function f(){ requestAnimationFrame(f); if(vis && !document.hidden) draw(); })();
+  })();
 
   if(!reduce){
     var last=0;
