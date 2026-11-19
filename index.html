@@ -54,14 +54,20 @@ a{color:#F2F4F5;text-decoration:none}
 .va-legal{position:absolute;right:28px;bottom:16px;display:flex;gap:18px;font-size:12px;z-index:5}
 .va-legal a{color:#C9D0D6}
 
-/* Handy und Tablet: Knopf links, Menüleiste aufgeklappt */
+/* Handy, Tablet, kleine Laptops: Menüpunkte als Liste rechts, Menüknopf links */
 @media (max-width:1300px){
-  .va-navwrap{display:none}
+  .va-head{padding:14px 16px;gap:12px;align-items:flex-start}
   .va-burger{order:0}
-  .va-head{padding:14px 16px;gap:12px}
+  .va-nav{flex-direction:column;align-items:stretch;border-radius:18px}
+  .va-nav a{text-align:right;padding:6px 13px}
+  .va-nav a span{background-image:linear-gradient(180deg,#EEF2F7 0%,#AFBACA 42%,#5B82F0 100%)}
   .va-panel{left:16px;right:auto;top:72px}
 }
-@media (max-width:420px){ .va-brand span{font-size:20px} }
+@media (max-width:600px){
+  .va-brand span{display:none}
+  .va-nav{font-size:13px}
+  .va-nav a{padding:5px 11px}
+}
 @media (prefers-reduced-motion:reduce){ #intro,.va-panel{transition:none} }
 </style>
 </head>
@@ -123,11 +129,11 @@ a{color:#F2F4F5;text-decoration:none}
   var stage=document.querySelector('.va-stage');
   var intro=document.getElementById('intro'), loop=document.getElementById('loop'), started=false;
 
-  /* Frau bei jeder Bildschirmgröße gut sichtbar: auf schmalen Bildschirmen in die Mitte rücken */
-  var WOMAN_X=0.335, VIDEO_RATIO=16/9;
+  /* Frau bei jeder Bildschirmgröße gut sichtbar: auf schmalen Bildschirmen mittig-links, rechts ist Platz für die Menüliste */
+  var WOMAN_X=0.335, TARGET=0.37, VIDEO_RATIO=16/9;
   function frameWoman(){
     var f=(stage.clientWidth/stage.clientHeight)/VIDEO_RATIO, p=34;
-    if(f<0.8){ p=Math.max(0,Math.min(100,(WOMAN_X-f/2)/(1-f)*100)); }
+    if(f<0.8){ p=Math.max(0,Math.min(100,(WOMAN_X-TARGET*f)/(1-f)*100)); }
     var pos=p.toFixed(1)+'% 45%';
     intro.style.objectPosition=pos; loop.style.objectPosition=pos; stage.style.backgroundPosition=pos;
   }
@@ -160,7 +166,7 @@ a{color:#F2F4F5;text-decoration:none}
     this.c.style.left=this.c.style.top=(-pad)+'px';
     this.c.width=Math.round(this.W*dpr); this.c.height=Math.round(this.H*dpr); this.c.style.width=this.W+'px'; this.c.style.height=this.H+'px';
     this.ctx.setTransform(dpr,0,0,dpr,0,0);
-    var r=Math.min(this.o.radius==='pill'?h/2:this.o.radius,h/2,w/2), x0=pad, y0=pad, pts=[], step=2;
+    var r=Math.min(this.o.radius==='pill'?(h>60?18:h/2):this.o.radius,h/2,w/2), x0=pad, y0=pad, pts=[], step=2;
     function line(ax,ay,bx,by){ var d=Math.hypot(bx-ax,by-ay), n=Math.max(1,Math.round(d/step)); for(var i=0;i<n;i++) pts.push([ax+(bx-ax)*i/n, ay+(by-ay)*i/n]); }
     function arc(cx,cy,a0){ var n=Math.max(2,Math.round(r*Math.PI/2/step)); for(var i=0;i<n;i++){ var a=a0+Math.PI/2*i/n; pts.push([cx+r*Math.cos(a), cy+r*Math.sin(a)]); } }
     line(x0+r,y0,x0+w-r,y0); arc(x0+w-r,y0+r,-Math.PI/2);
