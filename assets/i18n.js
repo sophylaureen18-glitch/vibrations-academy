@@ -2,6 +2,17 @@
    Übersetzt alle Texte, deren deutscher Wortlaut unten steht. Neue Texte einfach in D ergänzen. */
 (function(){
   var D={
+    'Vibrations · Film & Video':'Vibrations · Film & video',
+    'Zu den Videos':'View videos',
+    'YouTube-Kanal':'YouTube channel',
+    'Vibrations Academy auf YouTube':'Vibrations Academy on YouTube',
+    'Die Videos werden erst nach dem Klick von YouTube geladen.':'Videos are only loaded from YouTube after you click.',
+    'Alle Videos auf YouTube ansehen':'Watch all videos on YouTube',
+    '3D-Motiv: Motive aus Vibrations-Produktionen mit Filmscheinwerfern. Ein Seitenbild anklicken, um es in die Mitte zu holen.':'3D scene: shots from Vibrations productions with film spotlights. Click a side image to bring it to the centre.',
+    'Media Productions – Vibrations German Electronic Solutions & Academy':'Media Productions – Vibrations German Electronic Solutions & Academy',
+    'Video abspielen: VIBRATIONS ACADEMY Prüffeld Test DCTR B-X Doepke Schaltgeräte GmbH':'Play video: VIBRATIONS ACADEMY Prüffeld Test DCTR B-X Doepke Schaltgeräte GmbH',
+    'Video abspielen: Anlagenprüfung und Erdung von Stromersatzanlagen':'Play video: Anlagenprüfung und Erdung von Stromersatzanlagen',
+    'Video abspielen: SIEMENS RCD Type B im Härtetest':'Play video: SIEMENS RCD Type B im Härtetest',
     'Stromnetzsicherheit':'Power grid safety',
     'Die Inhalte zu dieser Seite werden gerade erstellt. Bei Fragen zur Stromnetzsicherheit am Filmset und bei Veranstaltungen sind wir gern persönlich für Sie da:':'The content for this page is currently being prepared. If you have questions about power grid safety on film sets and at events, we are happy to help personally:',
     '3D-Motiv: Prüfung am Schaltschrank, Messkurven einer Netzanalyse und Quick Recording System am Filmset. Ein Seitenbild anklicken, um es in die Mitte zu holen.':'3D scene: testing at a switch cabinet, measurement curves of a grid analysis and Quick Recording System on a film set. Click a side image to bring it to the centre.',
