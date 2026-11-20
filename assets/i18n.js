@@ -2,6 +2,10 @@
    Übersetzt alle Texte, deren deutscher Wortlaut unten steht. Neue Texte einfach in D ergänzen. */
 (function(){
   var D={
+    'Stromnetzsicherheit':'Power grid safety',
+    'Die Inhalte zu dieser Seite werden gerade erstellt. Bei Fragen zur Stromnetzsicherheit am Filmset und bei Veranstaltungen sind wir gern persönlich für Sie da:':'The content for this page is currently being prepared. If you have questions about power grid safety on film sets and at events, we are happy to help personally:',
+    '3D-Motiv: Prüfung am Schaltschrank, Messkurven einer Netzanalyse und Quick Recording System am Filmset. Ein Seitenbild anklicken, um es in die Mitte zu holen.':'3D scene: testing at a switch cabinet, measurement curves of a grid analysis and Quick Recording System on a film set. Click a side image to bring it to the centre.',
+    'Stromnetzsicherheit Filmset und Veranstaltung – Vibrations German Electronic Solutions & Academy':'Power grid safety for film sets and events – Vibrations German Electronic Solutions & Academy',
     'Electronic Solutions · Netzanalyse':'Electronic Solutions · Grid analysis',
     'Zu den Messgeräten':'View analysers',
     'Für raue Umgebungen & beengten Platz':'For harsh environments & tight spaces',
