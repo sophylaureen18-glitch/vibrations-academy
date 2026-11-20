@@ -2,6 +2,20 @@
    Übersetzt alle Texte, deren deutscher Wortlaut unten steht. Neue Texte einfach in D ergänzen. */
 (function(){
   var D={
+    'Vibrations · Technik':'Vibrations · Technology',
+    'German Electronic Solutions':'German Electronic Solutions',
+    'Zu den Lösungen':'View solutions',
+    'Kontakt aufnehmen':'Get in touch',
+    'PTM Prüfstationen':'PTM test stations',
+    'Mess- und Prüftechnik':'Measuring and testing technology',
+    'Power Quality':'Power quality',
+    'Stromnetzsicherheit Filmset und Veranstaltung':'Power grid safety for film sets and events',
+    'Mobile PTM-Prüfstation im Flightcase mit ausgeklappten Tischen':'Mobile PTM test station in a flight case with folding tables',
+    'Prüfgerät SAFETYTEST 3ST mit Laptop':'SAFETYTEST 3ST test device with laptop',
+    'Sortiment an Power-Quality-Messgeräten':'Range of power quality analysers',
+    'Quick Recording System im Rack neben einer Filmkamera':'Quick Recording System in a rack next to a film camera',
+    '3D-Motiv: Messwandler mit Lichtleitern, Q.R.S. PQ Data und Q.R.CMS Leak-C. Ein Seitenbild anklicken, um es in die Mitte zu holen.':'3D scene: current transformer with light fibres, Q.R.S. PQ Data and Q.R.CMS Leak-C. Click a side image to bring it to the centre.',
+    'Electronic Solutions – Vibrations German Electronic Solutions & Academy':'Electronic Solutions – Vibrations German Electronic Solutions & Academy',
     'Film | Event | Medien – Dienstleistungen':'Film | Event | Media – services',
     'Beratung, Planung, Umsetzung nach Organisationsverpflichtung, Fachkräfte-Rekrutierung, Beurteilung, Bestellung nach Auswahlverpflichtung':'Consulting, planning and implementation according to organisational duties, recruiting, assessing and appointing skilled staff according to selection duties',
     'Vibrations Green Powerstation / Mobiles hybrides Energiespeichersystem':'Vibrations Green Powerstation / mobile hybrid energy storage system',
