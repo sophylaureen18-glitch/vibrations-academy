@@ -2,6 +2,15 @@
    Übersetzt alle Texte, deren deutscher Wortlaut unten steht. Neue Texte einfach in D ergänzen. */
 (function(){
   var D={
+    'Vibrations · Kunden':'Vibrations · Clients',
+    'Zu den Referenzen':'View references',
+    'Vibrations Referenzen':'Vibrations references',
+    'Kunden aus dem Film':'Clients from film',
+    'Kunden aus der Veranstaltung':'Clients from events',
+    'Kunden aus der Industrie':'Clients from industry',
+    'Kundenliste in Bearbeitung':'Client list in preparation',
+    'Trainer am Filmscheinwerfer':'Trainer at a film spotlight',
+    'Die Referenzen unserer Kunden aus Film, Veranstaltung und Industrie werden gerade zusammengestellt. Gern nennen wir Ihnen Referenzen aus Ihrer Branche persönlich:':'References from our clients in film, events and industry are currently being compiled. We are happy to name references from your sector personally:',
     'Prüfdienste – Services · Übertragungsfahrzeuge':'Testing services · broadcast vehicles',
     'Event – TV – Studio':'Events – TV – studio',
     'TV – Studio – Theater':'TV – studio – theatre',
