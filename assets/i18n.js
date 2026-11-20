@@ -2,6 +2,13 @@
    Übersetzt alle Texte, deren deutscher Wortlaut unten steht. Neue Texte einfach in D ergänzen. */
 (function(){
   var D={
+    'Rechtliches':'Legal',
+    'Zum Impressum':'View legal notice',
+    'Angaben':'Details',
+    'Hinweis gemäß Online-Streitbeilegungs-Verordnung':'Notice under the Online Dispute Resolution Regulation',
+    'Disclaimer – rechtliche Hinweise':'Disclaimer – legal notes',
+    '3D-Motiv: Team vor dem Messfahrzeug, Band auf der Bühne und Prüfgerät. Ein Seitenbild anklicken, um es in die Mitte zu holen.':'3D scene: team in front of the measuring vehicle, band on stage and test device. Click a side image to bring it to the centre.',
+    'Impressum – Vibrations German Electronic Solutions & Academy':'Legal notice – Vibrations German Electronic Solutions & Academy',
     'Vibrations · Kontakt':'Vibrations · Contact',
     'E-Mail schreiben':'Send an email',
     'Anrufen':'Call us',
