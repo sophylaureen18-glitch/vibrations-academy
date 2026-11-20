@@ -2,6 +2,12 @@
    Übersetzt alle Texte, deren deutscher Wortlaut unten steht. Neue Texte einfach in D ergänzen. */
 (function(){
   var D={
+    'Electronic Solutions':'Electronic Solutions',
+    'Mehr erfahren':'Learn more',
+    'Die Inhalte zu dieser Seite werden gerade erstellt. Bei Fragen zu unserer Mess- und Prüftechnik sind wir gern persönlich für Sie da:':'The content for this page is currently being prepared. If you have questions about our measuring and testing technology, we are happy to help personally:',
+    'Das könnte Sie auch interessieren':'You might also be interested in',
+    '3D-Motiv: Prüfung am Schaltschrank, Messkurven einer Netzanalyse und Prüfgerät SAFETYTEST mit Laptop. Ein Seitenbild anklicken, um es in die Mitte zu holen.':'3D scene: testing at a switch cabinet, measurement curves of a grid analysis and SAFETYTEST device with laptop. Click a side image to bring it to the centre.',
+    'Mess- und Prüftechnik – Vibrations German Electronic Solutions & Academy':'Measuring and testing technology – Vibrations German Electronic Solutions & Academy',
     'Electronic Solutions · Test Bay Solutions':'Electronic Solutions · Test Bay Solutions',
     'Zu den Prüfstationen':'View test stations',
     'Zu den Electronic Solutions':'To Electronic Solutions',
