@@ -385,20 +385,6 @@ a{color:#F2F4F5;text-decoration:none}
     }
     build();
     var cardSparks=[].map.call(document.querySelectorAll('.va-card'), function(el){ var sp=new Sparks(el.querySelector('.va-spark'), el, {radius:18, bolts:0}); sp.resize(); if(window.ResizeObserver) new ResizeObserver(function(){ sp.resize(); }).observe(el); return sp; });
-  (function(){ var sel='.va-card,.igal a,.gal figure,.fly,.vid .yt,.pimg,.tbimg,.qrsimg,.draw,.ihk-logo,img.photo';
-    document.querySelectorAll(sel).forEach(function(h){
-      if(h.tagName==='IMG'){ var w=document.createElement('span'); w.className='spk-wrap'; h.parentNode.insertBefore(w,h); w.appendChild(h); h=w; }
-      var cv=null; for(var i=0;i<h.children.length;i++){ if(h.children[i].classList&&h.children[i].classList.contains('va-spark')) cv=h.children[i]; }
-      if(cv&&cv.dataset.on) return;
-      if(!cv){ cv=document.createElement('canvas'); cv.className='va-spark'; cv.setAttribute('aria-hidden','true'); h.insertBefore(cv,h.firstChild); }
-      cv.dataset.on=1; h.classList.add('spk-host');
-      var r=parseFloat(getComputedStyle(h).borderTopLeftRadius)||14;
-      var sp=new Sparks(cv,h,{radius:Math.min(r,22),bolts:0,light:false}); sp.vis=false;
-      if(window.IntersectionObserver) new IntersectionObserver(function(e){ sp.vis=e[0].isIntersecting; },{rootMargin:'60px'}).observe(h); else sp.vis=true;
-      h.querySelectorAll('img').forEach(function(im){ im.addEventListener('load',function(){ sp.resize(); }); });
-      list.push(sp);
-    });
-  })();
 
     window.addEventListener('resize', function(){ if(Math.abs(box.offsetWidth-lastW)>40 || Math.abs(box.offsetHeight-H)>120) build(); });
     if(window.IntersectionObserver) new IntersectionObserver(function(e){ vis=e[0].isIntersecting; }).observe(box); else vis=true;
