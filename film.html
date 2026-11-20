@@ -183,6 +183,8 @@ details{margin:0 0 14px;border-top:1px solid rgba(127,168,255,.16);padding-top:1
  .ac-hero .va-safety{position:relative;left:auto;right:auto;top:auto;bottom:auto;margin:22px 12px 0;width:auto}
  .cta{margin:50px 12px 0}
 }
+.spk-host{position:relative;overflow:visible!important}.spk-host>img,.spk-host>a>img{border-radius:inherit}.spk-host:hover img{transform:none!important}
+.spk-wrap{display:block;border-radius:16px}.spk-wrap>img{display:block;width:100%;height:auto;border-radius:16px}
 </style></head><body>
 <section class="ac-hero"><canvas class="ac-bg ac-3d" data-panels='[{"url":"assets/film-buehne.jpg","ar":1.5004},{"url":"assets/film-scheinwerfer.jpg","ar":1.4231},{"url":"assets/acad-team.jpg","ar":1.3333}]' aria-label="3D-Motiv: Bühne mit Lichtshow, Trainer am Filmscheinwerfer und Team. Ein Seitenbild anklicken, um es in die Mitte zu holen."></canvas>
  <header class="va-head">
@@ -341,7 +343,22 @@ details{margin:0 0 14px;border-top:1px solid rgba(127,168,255,.16);padding-top:1
 
   var list=[['.va-nav','pill',false],['#sb',18,true],,].filter(function(d){return document.querySelector(d[0]);}).map(function(d){
     var host=document.querySelector(d[0]); var cv=host.classList.contains('va-nav')?host.parentNode.querySelector('.va-spark'):host.querySelector('.va-spark');
-    var sp=new Sparks(cv,host,{radius:d[1],bolts:0,light:d[2]}); sp.vis=true; if(window.IntersectionObserver) new IntersectionObserver(function(e){ sp.vis=e[0].isIntersecting; }).observe(host); return sp; });
+    cv.dataset.on=1; var sp=new Sparks(cv,host,{radius:d[1],bolts:0,light:d[2]}); sp.vis=true; if(window.IntersectionObserver) new IntersectionObserver(function(e){ sp.vis=e[0].isIntersecting; }).observe(host); return sp; });
+  (function(){ var sel='.va-card,.igal a,.gal figure,.fly,.vid .yt,.pimg,.tbimg,.qrsimg,.draw,.ihk-logo,img.photo';
+    document.querySelectorAll(sel).forEach(function(h){
+      if(h.tagName==='IMG'){ var w=document.createElement('span'); w.className='spk-wrap'; h.parentNode.insertBefore(w,h); w.appendChild(h); h=w; }
+      var cv=null; for(var i=0;i<h.children.length;i++){ if(h.children[i].classList&&h.children[i].classList.contains('va-spark')) cv=h.children[i]; }
+      if(cv&&cv.dataset.on) return;
+      if(!cv){ cv=document.createElement('canvas'); cv.className='va-spark'; cv.setAttribute('aria-hidden','true'); h.insertBefore(cv,h.firstChild); }
+      cv.dataset.on=1; h.classList.add('spk-host');
+      var r=parseFloat(getComputedStyle(h).borderTopLeftRadius)||14;
+      var sp=new Sparks(cv,h,{radius:Math.min(r,22),bolts:0,light:false}); sp.vis=false;
+      if(window.IntersectionObserver) new IntersectionObserver(function(e){ sp.vis=e[0].isIntersecting; },{rootMargin:'60px'}).observe(h); else sp.vis=true;
+      h.querySelectorAll('img').forEach(function(im){ im.addEventListener('load',function(){ sp.resize(); }); });
+      list.push(sp);
+    });
+  })();
+
   function rs(){ list.forEach(function(s){ s.resize(); }); } (document.fonts?document.fonts.ready:Promise.resolve()).then(rs); setTimeout(rs,500); addEventListener('resize',rs);
   var c=document.getElementById('va-circuit'), box=c.parentNode, g=c.getContext('2d'), W,H,traces=[],pulses=[];
   function rnd(a,b){return a+Math.random()*(b-a);}
