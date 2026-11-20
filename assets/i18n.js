@@ -2,6 +2,10 @@
    Übersetzt alle Texte, deren deutscher Wortlaut unten steht. Neue Texte einfach in D ergänzen. */
 (function(){
   var D={
+    'Zur Datenschutzerklärung':'View privacy policy',
+    'Datenschutzerklärung':'Privacy policy',
+    'Datenschutz – Vibrations German Electronic Solutions & Academy':'Privacy – Vibrations German Electronic Solutions & Academy',
+    '3D-Motiv: Prüfgerät, Band auf der Bühne und Team vor dem Messfahrzeug. Ein Seitenbild anklicken, um es in die Mitte zu holen.':'3D scene: test device, band on stage and team in front of the measuring vehicle. Click a side image to bring it to the centre.',
     'Rechtliches':'Legal',
     'Zum Impressum':'View legal notice',
     'Angaben':'Details',
