@@ -2,6 +2,17 @@
    Übersetzt alle Texte, deren deutscher Wortlaut unten steht. Neue Texte einfach in D ergänzen. */
 (function(){
   var D={
+    'Vibrations · Prüfdienste':'Vibrations · Testing services',
+    'Zu den Services':'View services',
+    'Vibrations Prüfdienste – Services':'Vibrations testing services',
+    'Event – TV – Studio – Übertragungsfahrzeuge':'Events – TV – studio – broadcast vehicles',
+    'Industrieroboter in einer Fertigungsstraße':'Industrial robots on a production line',
+    'Olympiastadion München im Sonnenuntergang':'Munich Olympic Stadium at sunset',
+    'Echtzeit-Überwachung der Stromversorgung':'Real-time monitoring of the power supply',
+    'Quick Recording System AI':'Quick Recording System AI',
+    'Schema Quick Recording System AI: Stromerzeuger, PQI-DE, RCMB 300, Verteiler und Bühnen mit Ampelanzeigen und Admin-Arbeitsplatz':'Diagram Quick Recording System AI: generators, PQI-DE, RCMB 300, distribution boards and stages with traffic-light indicators and admin workstation',
+    'Prüfung, Messung und Überwachung aus einer Hand':'Testing, measuring and monitoring from a single source',
+    '3D-Motiv: PTM-Prüfstation in der Werkstatt, Test Bay Solutions und Prüfplatz mit SAFETYTEST. Ein Seitenbild anklicken, um es in die Mitte zu holen.':'3D scene: PTM test station in the workshop, Test Bay Solutions and test bench with SAFETYTEST. Click a side image to bring it to the centre.',
     'Vibrations · Merchandise':'Vibrations · Merchandise',
     'Vibrations Fashion':'Vibrations Fashion',
     'Vibrations auf Instagram':'Vibrations on Instagram',
