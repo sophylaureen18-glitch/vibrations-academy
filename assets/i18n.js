@@ -2,6 +2,12 @@
    Übersetzt alle Texte, deren deutscher Wortlaut unten steht. Neue Texte einfach in D ergänzen. */
 (function(){
   var D={
+    'Vibrations · Merchandise':'Vibrations · Merchandise',
+    'Vibrations Fashion':'Vibrations Fashion',
+    'Vibrations auf Instagram':'Vibrations on Instagram',
+    'Die Inhalte zu dieser Seite werden gerade erstellt. Sie interessieren sich für Hoodies oder Shirts von Vibrations? Schreiben Sie uns oder rufen Sie an:':'The content for this page is currently being prepared. Interested in Vibrations hoodies or shirts? Write to us or give us a call:',
+    '3D-Motiv: Models in Vibrations-Hoodies und -Shirts vor Generatoren. Ein Seitenbild anklicken, um es in die Mitte zu holen.':'3D scene: models in Vibrations hoodies and shirts in front of generators. Click a side image to bring it to the centre.',
+    'Vibrations Fashion – Vibrations German Electronic Solutions & Academy':'Vibrations Fashion – Vibrations German Electronic Solutions & Academy',
     'Vibrations · Film & Video':'Vibrations · Film & video',
     'Zu den Videos':'View videos',
     'YouTube-Kanal':'YouTube channel',
