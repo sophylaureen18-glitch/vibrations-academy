@@ -2,6 +2,15 @@
    Übersetzt alle Texte, deren deutscher Wortlaut unten steht. Neue Texte einfach in D ergänzen. */
 (function(){
   var D={
+    'Vibrations · Kontakt':'Vibrations · Contact',
+    'E-Mail schreiben':'Send an email',
+    'Anrufen':'Call us',
+    'So erreichen Sie uns':'How to reach us',
+    'Route planen':'Plan route',
+    'Direkt zu':'Go directly to',
+    'Fortbildungen & Schulungen':'Courses & training',
+    'Fax +49 89 90 77 50 41':'Fax +49 89 90 77 50 41',
+    '3D-Motiv: Team vor dem Messfahrzeug, Prüfteam vor einer Bühne und Team mit Filmscheinwerfern. Ein Seitenbild anklicken, um es in die Mitte zu holen.':'3D scene: team in front of the measuring vehicle, testing team in front of a stage and team with film spotlights. Click a side image to bring it to the centre.',
     'Vibrations · Kunden':'Vibrations · Clients',
     'Zu den Referenzen':'View references',
     'Vibrations Referenzen':'Vibrations references',
